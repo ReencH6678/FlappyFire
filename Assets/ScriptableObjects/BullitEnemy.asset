@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4150dd90db9c1fd46b478a654147ee5c, type: 3}
+  m_Name: BullitEnemy
+  m_EditorClassIdentifier: 
+  _damage: 1
+  _speed: 0.5
+  _direction: {x: 1, y: 0}
+  _sprite: {fileID: 33438841, guid: 4a056d9482c69884d906cb07fe0a525b, type: 3}
+  _animatorController: {fileID: 9100000, guid: 93bd64695df38d54c926e171c6cf2339, type: 2}
+  _ignorEnemy: 1
+  _rotate: {x: 0, y: 180, z: 0, w: 0}
