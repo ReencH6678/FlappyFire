@@ -1,22 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletSpawner : Spawner<BulletObject>
+public class BulletSpawner : Spawner<Bullet>
 {
+    [SerializeField] private Quaternion _bulletDirection;
+
     private Vector3 _spawnPosition;
-    private Bullet _bullet;
-    public void Spawn(Transform spawnPosition, Bullet bullet)
+    private BulletData _bullet;
+
+    public void Spawn(Transform spawnPosition, BulletData bullet)
     {
         _bullet = bullet;
         _spawnPosition = spawnPosition.position;
         _pool.Get();
     }
 
-    public override void ActionOnGet(BulletObject obj)
+    public override void ActionOnGet(Bullet obj)
     {
         base.ActionOnGet(obj);
         obj.SetBullet(_bullet);
+        obj.SetDirection(_bulletDirection);
     }
     protected override Vector3 GetSpawnPosition()
     {

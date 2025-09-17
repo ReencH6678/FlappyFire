@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Attacker : MonoBehaviour
 {
-    [SerializeField] private Bullet _bullet;
+    [SerializeField] private BulletData _bullet;
     [SerializeField] private float _attackTime;
     [SerializeField] private Transform _bulletSpawnPoint;
 

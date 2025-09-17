@@ -1,12 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemySpawner : Spawner<Enemy>
 {
     [SerializeField] private BulletSpawner _bulletSpawner;
     [SerializeField] private BoxCollider2D _spawnBox;
-    [SerializeField] private Score _score;
 
     [SerializeField] protected float _spawnRate;
 
@@ -14,19 +13,18 @@ public class EnemySpawner : Spawner<Enemy>
 
     private bool _isOn = true;
 
+    public event UnityAction Released;
     public override void ActionOnGet(Enemy obj)
     {
-        obj.Defeated += _score.Add;
         obj.SetBulletSpawner(_bulletSpawner);
-        obj.SetScore(_score);
         base.ActionOnGet(obj);
     }
 
     public override void Release(IPoolable obj)
     {
         base.Release(obj);
+        Released?.Invoke();
     }
-
     public void StartSpawn()
     {
         if (_spawnCorutine == null)

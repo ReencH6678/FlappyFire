@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Game : MonoBehaviour
@@ -8,6 +9,7 @@ public class Game : MonoBehaviour
     [SerializeField] private Health _health;
     [SerializeField] private Score _score;
     [SerializeField] private EnemySpawner _enemySpawner;
+    [SerializeField] private List<BulletSpawner> _bulletSpawners;
     [SerializeField] private StartWindow _startWindow;
     [SerializeField] private EndGameWindow _endGameWindow;
     [SerializeField] private float _endGameDeley;
@@ -63,12 +65,14 @@ public class Game : MonoBehaviour
 
     private void StartGame()
     {
-        Mover.Switch();
         Time.timeScale = 1.0f;
         _enemySpawner.Reset();
         _player.Reset();
         _score.Reset();
         _enemySpawner.StartSpawn();
+
+        foreach(BulletSpawner bulletSpawner in _bulletSpawners)
+            bulletSpawner.Reset();
 
         if (_endGameCorutine != null)
         {
@@ -81,6 +85,5 @@ public class Game : MonoBehaviour
     {
         Time.timeScale = 0f;
         _enemySpawner.OffSpawn();
-        Mover.Switch();
     }
 }

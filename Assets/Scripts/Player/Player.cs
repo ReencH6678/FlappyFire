@@ -33,12 +33,13 @@ public class Player : Entity
     private void OnDisable()
     {
         _health.Died -= Die;
+        _health.Damaged -= _animationHandler.PlayDamageAnimation;
     }
 
     private void Update()
     {
         if (IsDead == false)
-            Life();
+            Live();
     }
 
     public void Reset()
@@ -56,7 +57,7 @@ public class Player : Entity
         _animationHandler.SetDeathParameter(true);
     }
 
-    public override void Life()
+    public override void Live()
     {
         if (_inputHandler.IsLeftMouseButtonPressed)
         {

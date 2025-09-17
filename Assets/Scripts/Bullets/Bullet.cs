@@ -2,9 +2,9 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Mover), typeof(SpriteRenderer), typeof(Animator))]
-public class BulletObject : MonoBehaviour, IPoolable
+public class Bullet : MonoBehaviour, IPoolable
 {
-    private Bullet _bullet;
+    private BulletData _bullet;
 
     private float _damage;
 
@@ -23,38 +23,34 @@ public class BulletObject : MonoBehaviour, IPoolable
 
     private void Update()
     {
-        _mover.Move(_bullet.Direction.x);
+        _mover.Move(Vector2.right.x);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.TryGetComponent<Health>(out Health health))
         {
-            if (collision.gameObject.TryGetComponent<Enemy>(out _))
-            {
-                if (_bullet.IgnorEnemy == false)
-                {
-                    health.TakeDamage(_bullet.Damage);
-                    DeactivationRequested?.Invoke(this);
-                }
-            }
-            else
-            {
-                health.TakeDamage(_bullet.Damage);
-                DeactivationRequested?.Invoke(this);
-            }
+            health.TakeDamage(_bullet.Damage);
+            DeactivationRequested?.Invoke(this);
         }
 
-        if(collision.gameObject.TryGetComponent<DestroyBox>(out _))
-                DeactivationRequested?.Invoke(this);
+        if (collision.gameObject.TryGetComponent<DestroyBox>(out _))
+            DeactivationRequested?.Invoke(this);
     }
 
-    public void SetBullet(Bullet bullet)
+    public void SetBullet(BulletData bullet)
     {
+        int logVelue = 2;
+
         _bullet = bullet;
         _spriteRenderer.sprite = bullet.Sprite;
         _animator.runtimeAnimatorController = bullet.AnimatorController;
         _mover.SetSpeed(bullet.Speed);
-        transform.localRotation = _bullet.Rotate;
+        gameObject.layer = (int)Mathf.Log(_bullet.LayerMask.value, logVelue);
+    }
+
+    public void SetDirection(Quaternion rotation)
+    {
+        transform.localRotation = rotation;
     }
 }

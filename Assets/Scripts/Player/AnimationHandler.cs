@@ -3,11 +3,6 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class AnimationHandler : MonoBehaviour
 {
-    [SerializeField] private string _jumpBlendParameter;
-    [SerializeField] private string _attackBlendParameter;
-    [SerializeField] private string _deathBlendParameter;
-    [SerializeField] private string _damageBlendParameter;
-
     private Animator _animator;
 
     private void Awake()
@@ -17,21 +12,21 @@ public class AnimationHandler : MonoBehaviour
 
     public void PlayJumpAnimation()
     {
-        _animator.SetTrigger(_jumpBlendParameter);
+        _animator.SetTrigger(AnimatorData.Param.Jump);
     }
 
     public void PlayAttackAnimation()
     {
-        _animator.SetTrigger(_attackBlendParameter);
+        _animator.SetTrigger(AnimatorData.Param.Attack);
     }
 
     public void SetDeathParameter(bool isDie)
     {
-        _animator.SetBool(_deathBlendParameter, isDie);
+        _animator.SetBool(AnimatorData.Param.Death, isDie);
     }
 
     public void PlayDamageAnimation()
     {
-        _animator.SetTrigger(_damageBlendParameter);
+        _animator.SetTrigger(AnimatorData.Param.Damaged);
     }
 }

@@ -5,9 +5,21 @@ public class Score : MonoBehaviour
 {
     private const int StartCount = 0;
 
+    [SerializeField] private EnemySpawner _enemySpawner;
+
     private int _count;
 
     public event UnityAction<int> Changed;
+
+    private void OnEnable()
+    {
+        _enemySpawner.Released += Add;
+    }
+
+    private void OnDisable()
+    {
+        _enemySpawner.Released -= Add;
+    }
 
     public void Add()
     {

@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4150dd90db9c1fd46b478a654147ee5c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0624629d093d0cb4889696141726e635, type: 3}
   m_Name: Bullit
   m_EditorClassIdentifier: 
   _damage: 1
-  _speed: 0.5
-  _direction: {x: 1, y: 0}
+  _speed: 3
   _sprite: {fileID: 441524720, guid: c32a91f6427822642a92c6cced8d7d60, type: 3}
   _animatorController: {fileID: 9100000, guid: a25b18691d3b0174ebb1d6b9e52adce9, type: 2}
-  _ignorEnemy: 0
-  _rotate: {x: 0, y: 0, z: 0, w: 0}
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 512

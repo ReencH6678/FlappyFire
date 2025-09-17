@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d882347c00d79ca46bbfa70ac80785a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _needAttack: 1
+  _canAttack: 1
 --- !u!114 &6978209072902565849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9275bf04e387fce49941604e2fe342cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0.1
+  _speed: 1
 --- !u!114 &6053670407348820468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,10 +191,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb05b69c8c467764ab5af24f543a6ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpBlendParameter: 
-  _attackBlendParameter: Attack
-  _deathBlendParameter: Death
-  _damageBlendParameter: 
 --- !u!61 &5109434380366806308
 BoxCollider2D:
   m_ObjectHideFlags: 0

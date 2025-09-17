@@ -122,6 +122,53 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &53432163
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 53432165}
+  - component: {fileID: 53432164}
+  m_Layer: 0
+  m_Name: EnemyBulletSpawner
+  m_TagString: BullitSpawner
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &53432164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53432163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfb5529411b7f2f45a99bc88abfd1e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefabes:
+  - {fileID: 1954918019391089999, guid: b57a649fa62cd0b4aa420e93797ff4df, type: 3}
+  _bulletDirection: {x: 0, y: 180, z: 0, w: 0}
+--- !u!4 &53432165
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53432163}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.30792964, y: 0.1467709, z: 0.06313114}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &96985495
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,7 +386,7 @@ GameObject:
   - component: {fileID: 115281846}
   - component: {fileID: 115281845}
   m_Layer: 0
-  m_Name: DestroyBox (3)
+  m_Name: DestroyBoxTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -422,12 +469,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 115281844}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.663, y: 0.92, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.254609, y: 1.746144, z: -10.92879}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1214067423}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &180593345
 GameObject:
@@ -443,7 +490,7 @@ GameObject:
   - component: {fileID: 180593348}
   - component: {fileID: 180593347}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -493,6 +540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3031e29e7aa724458513dfd4da66c6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemySpawner: {fileID: 519420034}
 --- !u!114 &180593349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -710,6 +758,9 @@ MonoBehaviour:
   _health: {fileID: 1368195277}
   _score: {fileID: 180593348}
   _enemySpawner: {fileID: 519420034}
+  _bulletSpawners:
+  - {fileID: 620857884}
+  - {fileID: 53432164}
   _startWindow: {fileID: 313089676}
   _endGameWindow: {fileID: 1736166095}
   _endGameDeley: 2
@@ -970,7 +1021,7 @@ GameObject:
   - component: {fileID: 447787652}
   - component: {fileID: 447787655}
   m_Layer: 0
-  m_Name: DestroyBox (2)
+  m_Name: DestroyBoxDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1041,12 +1092,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 447787651}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.663, y: -2.46, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.254609, y: -1.633856, z: -10.92879}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1214067423}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &447787655
 MonoBehaviour:
@@ -1151,7 +1202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9275bf04e387fce49941604e2fe342cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0.05
+  _speed: 0.5
 --- !u!212 &495358237
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1313,9 +1364,8 @@ MonoBehaviour:
   _prefabes:
   - {fileID: 8658187863482650681, guid: a515b0b609bdb7d4f9cdf39ada7f675d, type: 3}
   - {fileID: 987621368864371006, guid: c610b06fddb8d8c4cbabbf9d87794abd, type: 3}
-  _bulletSpawner: {fileID: 620857884}
+  _bulletSpawner: {fileID: 53432164}
   _spawnBox: {fileID: 371511288}
-  _score: {fileID: 180593348}
   _spawnRate: 2.5
 --- !u!1 &553652276
 GameObject:
@@ -1377,7 +1427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9275bf04e387fce49941604e2fe342cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0.1
+  _speed: 1
 --- !u!212 &553652280
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1461,6 +1511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefabes:
   - {fileID: 1954918019391089999, guid: 72a688f2511a0fe49a6664a4d85238b4, type: 3}
+  _bulletDirection: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &620857885
 Transform:
   m_ObjectHideFlags: 0
@@ -1524,7 +1575,7 @@ GameObject:
   - component: {fileID: 652223883}
   - component: {fileID: 652223882}
   m_Layer: 0
-  m_Name: DestroyBox (1)
+  m_Name: DestroyBoxLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1595,12 +1646,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652223881}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.03, y: 0.24, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.112390995, y: 1.066144, z: -10.92879}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1214067423}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &789907867
 GameObject:
@@ -1673,12 +1724,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 789907867}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.84, y: 0.24, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.757609, y: 1.066144, z: -10.92879}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1214067423}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &789907870
 MonoBehaviour:
@@ -1827,7 +1878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9275bf04e387fce49941604e2fe342cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0.07
+  _speed: 0.7
 --- !u!212 &890231455
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1880,6 +1931,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1214067422
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1214067423}
+  m_Layer: 0
+  m_Name: DestroyBoxes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1214067423
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214067422}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.9176092, y: -0.826144, z: 10.92879}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 789907869}
+  - {fileID: 652223884}
+  - {fileID: 447787654}
+  - {fileID: 115281848}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1232658382
 GameObject:
   m_ObjectHideFlags: 0
@@ -2036,7 +2122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9275bf04e387fce49941604e2fe342cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0.1
+  _speed: 1
 --- !u!212 &1317714634
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2149,7 +2235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9275bf04e387fce49941604e2fe342cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0.05
+  _speed: 0.5
 --- !u!212 &1327120112
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2262,7 +2348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9275bf04e387fce49941604e2fe342cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0.07
+  _speed: 0.7
 --- !u!212 &1350111401
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2525,10 +2611,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb05b69c8c467764ab5af24f543a6ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpBlendParameter: Jump
-  _attackBlendParameter: Attack
-  _deathBlendParameter: Death
-  _damageBlendParameter: TakeDamage
 --- !u!61 &1368195276
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2959,7 +3041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9275bf04e387fce49941604e2fe342cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0.06
+  _speed: 0.6
 --- !u!212 &1850329715
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3072,7 +3154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9275bf04e387fce49941604e2fe342cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0.06
+  _speed: 0.6
 --- !u!212 &1924345621
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3134,10 +3216,8 @@ SceneRoots:
   - {fileID: 1431116593}
   - {fileID: 1368195272}
   - {fileID: 371511289}
-  - {fileID: 789907869}
-  - {fileID: 652223884}
-  - {fileID: 447787654}
-  - {fileID: 115281848}
   - {fileID: 620857885}
+  - {fileID: 53432165}
   - {fileID: 350287343}
   - {fileID: 248724445}
+  - {fileID: 1214067423}

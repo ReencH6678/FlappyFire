@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9275bf04e387fce49941604e2fe342cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0.1
+  _speed: 2
 --- !u!114 &299709520874445391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb30d3f6a949a30439ccd521cbb7e49f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bullet: {fileID: 0}
+  _bullet: {fileID: 11400000, guid: 0d02204c4c0483d4cba54adee1826277, type: 2}
   _attackTime: 0
   _bulletSpawnPoint: {fileID: 0}
 --- !u!95 &5787718507031508854
@@ -168,10 +168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb05b69c8c467764ab5af24f543a6ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpBlendParameter: 
-  _attackBlendParameter: Attack
-  _deathBlendParameter: Death
-  _damageBlendParameter: 
 --- !u!50 &6994789114221877872
 Rigidbody2D:
   serializedVersion: 4
@@ -211,7 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d882347c00d79ca46bbfa70ac80785a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _needAttack: 0
+  _canAttack: 0
 --- !u!61 &2570361000130107406
 BoxCollider2D:
   m_ObjectHideFlags: 0

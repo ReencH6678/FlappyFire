@@ -5,7 +5,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(AnimationHandler), typeof(Rigidbody2D))]
 public class Enemy : Entity, IPoolable
 {
-    [SerializeField] private bool _needAttack;
+    [SerializeField] private bool _canAttack;
 
     private Mover _mover;
     private Health _health;
@@ -16,7 +16,6 @@ public class Enemy : Entity, IPoolable
     private Score _score;
 
     public event UnityAction<IPoolable> DeactivationRequested;
-    public event UnityAction Defeated;
 
     private void Awake()
     {
@@ -30,7 +29,7 @@ public class Enemy : Entity, IPoolable
     private void Update()
     {
         if (IsDead == false && this.enabled == true)
-            Life();
+            Live();
     }
 
     private void OnEnable()
@@ -42,7 +41,6 @@ public class Enemy : Entity, IPoolable
 
     private void OnDisable()
     {
-        Defeated -= _score.Add;
         _health.Died -= Die;
     }
 
@@ -57,29 +55,19 @@ public class Enemy : Entity, IPoolable
         _bulletSpawner = bulletSpawner;
     }
 
-    public void SetScore(Score score)
-    {
-        _score = score;
-    }
-
     public override void Die()
     {
         _rigidbody2D.constraints = ~RigidbodyConstraints2D.FreezePositionY;
         _animationHandler.SetDeathParameter(true);
-        Defeated?.Invoke();
         IsDead = true;
     }
 
-    public override void Life()
+    public override void Live()
     {
         _mover.Move(Vector2.right.x);
 
-        if (_needAttack)
-        {
+        if (_canAttack)
             if (_attacker.CanAttack)
-            {
                 _attacker.Attack(_bulletSpawner);
-            }
-        }
     }
 }

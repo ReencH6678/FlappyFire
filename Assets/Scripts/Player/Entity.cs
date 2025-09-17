@@ -6,6 +6,6 @@ using UnityEngine;
 public abstract class Entity : MonoBehaviour
 {
     public abstract void Die();
-    public abstract void Life();
+    public abstract void Live();
     public bool IsDead { get; protected set; }
 }

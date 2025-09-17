@@ -6,6 +6,7 @@ public class Health : MonoBehaviour
     [SerializeField] private float _maxCount;
     public float Count { get; private set; }
     public event Action<float, float> Changed;
+
     public event Action Damaged;
     public event Action Died;
 
@@ -30,7 +31,7 @@ public class Health : MonoBehaviour
 
     public void Heal(float healCount)
     {
-        if (healCount > 0 && healCount + Count < _maxCount)
+        if (healCount > 0 && healCount + Count <= _maxCount)
         {
             Count += healCount;
             Changed?.Invoke(Count, _maxCount);

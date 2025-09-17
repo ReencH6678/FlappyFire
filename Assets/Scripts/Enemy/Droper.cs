@@ -26,7 +26,9 @@ public class Droper : MonoBehaviour
 
     private void Drop()
     {
-        if (Random.Range(0, 100) < _dropChoice)
+        float maxPercent = 100;
+        float minPercent = 0;
+        if (Random.Range(minPercent, maxPercent) < _dropChoice)
             Instantiate(_item, transform.position, Quaternion.identity);
     }
 }
